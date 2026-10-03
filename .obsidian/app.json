@@ -1,0 +1,20 @@
+{
+  "alwaysUpdateLinks": true,
+  "newLinkFormat": "relative",
+  "useMarkdownLinks": true,
+  "attachmentFolderPath": "source/assets",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "drafts",
+  "showUnsupportedFiles": false,
+  "promptDelete": true,
+  "userIgnoreFilters": [
+    "node_modules/",
+    "public/",
+    "themes/",
+    "scaffolds/",
+    "scripts/",
+    "tools/",
+    ".git/",
+    ".github/"
+  ]
+}

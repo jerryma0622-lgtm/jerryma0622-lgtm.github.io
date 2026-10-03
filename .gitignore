@@ -1,0 +1,32 @@
+# Reproducible dependencies and generated output
+node_modules/
+public/
+.deploy_git/
+.cache/
+db.json
+*.log
+*.tsbuildinfo
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+.npmrc
+*.pem
+*.key
+
+# Drafts are local by default; source/assets is always public
+drafts/**
+!drafts/README.md
+!drafts/.gitkeep
+
+# Keep portable Obsidian preferences; ignore per-device state
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache/
+.obsidian/plugins/
+.obsidian/hotkeys.json
+
+.DS_Store
+Thumbs.db
+Desktop.ini

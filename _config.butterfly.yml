@@ -1,0 +1,129 @@
+# Minimal overrides merged with Butterfly 5.7.0 defaults.
+# Never edit node_modules or theme core files for customization.
+nav:
+  display_title: true
+  display_post_title: true
+  fixed: false
+menu:
+  首页: / || fas fa-home
+  归档: /archives/ || fas fa-archive
+  分类: /categories/ || fas fa-folder-open
+  标签: /tags/ || fas fa-tags
+  项目: /projects/ || fas fa-code
+  关于: /about/ || fas fa-user
+favicon: /assets/site/favicon.svg
+avatar:
+  img: /assets/site/favicon.svg
+  effect: false
+disable_top_img: true
+cover:
+  index_enable: false
+  aside_enable: false
+  archives_enable: false
+subtitle:
+  enable: false
+  effect: false
+index_layout: 1
+index_post_content:
+  method: 2
+  length: 160
+toc:
+  post: true
+  page: false
+  number: false
+  expand: true
+  style_simple: true
+  scroll_percent: false
+# A content license can be chosen later; do not silently assign a CC license.
+post_copyright:
+  enable: false
+related_post:
+  enable: false
+reward:
+  enable: false
+aside:
+  enable: true
+  hide: false
+  button: false
+  mobile: true
+  card_author:
+    enable: false
+    button:
+      enable: false
+  card_announcement:
+    enable: false
+  card_recent_post:
+    enable: false
+  card_categories:
+    enable: false
+  card_tags:
+    enable: false
+  card_archives:
+    enable: false
+  card_post_series:
+    enable: false
+  card_webinfo:
+    enable: false
+footer:
+  owner:
+    enable: true
+    since: 2026
+  copyright:
+    enable: true
+    version: true
+  custom_text: "技术实践与持续生长的笔记"
+darkmode:
+  enable: true
+  button: true
+  autoChangeMode: 1
+display_mode: light
+readmode: false
+rightside_item_order:
+  enable: true
+  hide: readmode
+  show: darkmode,toc
+rightside_config_animation: false
+search:
+  use: local_search
+  placeholder: 搜索文章
+  local_search:
+    preload: false
+share:
+  use: ''
+comments:
+  use: ''
+busuanzi:
+  site_uv: false
+  site_pv: false
+  page_pv: false
+enter_transitions: false
+hr_icon:
+  enable: false
+lightbox: ''
+instantpage: false
+theme_color:
+  enable: true
+  main: '#355f7a'
+  paginator: '#355f7a'
+  button_hover: '#264a60'
+  text_selection: '#355f7a'
+  link_color: '#355f7a'
+  toc_color: '#355f7a'
+  scrollbar_color: '#667785'
+font:
+  global_font_size: 16px
+  code_font_size: 14px
+  font_family: 'system-ui, -apple-system, "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif'
+  code_font_family: 'Consolas, "Cascadia Code", monospace'
+inject:
+  head:
+    - '<link rel="stylesheet" href="/css/custom.css">'
+    - '<script defer src="/js/accessibility.js"></script>'
+  bottom: []
+CDN:
+  internal_provider: local
+  third_party_provider: jsdelivr
+  version: true
+  option:
+    # The only enabled external library is served locally by scripts/vendor.js.
+    fontawesome: /vendor/fontawesome/css/all.min.css

@@ -33,7 +33,7 @@ drafts/ 默认被 Git 忽略，也不被 Hexo 构建，但不是安全存储；O
     scripts/                   项目级附件路径转换及本地图标生成
     tools/verify-site.cjs       生成站点链接与资源验证
     themes/                    预留目录；Butterfly 通过 npm 安装
-    .github/workflows/pages.yml 将来的 Pages 部署流程
+    .github/workflows/pages.yml GitHub Actions 的 Pages 部署流程
     _config.yml                Hexo 配置
     _config.butterfly.yml       Butterfly 配置覆盖
     package.json
@@ -96,7 +96,7 @@ scripts/asset-links.js 只将解析后指向本项目 source/assets 的相对图
 
 ## Git 与 OneDrive
 
-Git 只初始化在 Jerry Blog，主分支 main，初始提交只在本地。没有 remote，没有创建远程仓库，没有 push。
+Git 只初始化在 Jerry Blog，主分支 main。origin 对应 https://github.com/jerryma0622-lgtm/jerryma0622-lgtm.github.io.git；使用普通 push，不强制推送，不重写历史。每次提交前检查暂存文件，确认没有隐私、草稿或生成文件。
 
 忽略 node_modules、public、db.json、.deploy_git、.cache、日志、系统临时文件和本地 workspace 状态；保留 .obsidian/app.json、appearance.json、core-plugins.json、community-plugins.json 等可移植偏好。插件目录暂时忽略，未来需要共享插件时明确调整规则并检查插件配置中的凭据。
 
@@ -106,14 +106,14 @@ Git 只初始化在 Jerry Blog，主分支 main，初始提交只在本地。没
 
 如果依赖文件导致同步负担，后续可明确授权建立 OneDrive 外的独立构建 checkout，由 Git 传递源码；当前阶段保持用户要求的单目录方案，不自动迁移。重新安装前确保需要的源码本地可用。不要对共享 Git 工作目录或整库运行未经检查的递归清理命令。
 
-## GitHub Pages（仅预配置）
+## GitHub Pages
 
-计划仓库名：jerryma0622-lgtm.github.io，预设网站地址：https://jerryma0622-lgtm.github.io，root: /。没有自定义域名，没有 CNAME。
+源码仓库：https://github.com/jerryma0622-lgtm/jerryma0622-lgtm.github.io。网站地址：https://jerryma0622-lgtm.github.io，root: /。Pages 的 Source 使用 GitHub Actions，没有自定义域名，没有 CNAME。
 
 流程：Obsidian 写 Markdown → 本地检查 → Git commit → 明确授权后 push → GitHub Actions 运行 npm ci、Hexo build 和 verify → 上传 public artifact → Pages 部署。
-workflow 使用 main 的 push 和手动触发，Node 24、npm 缓存、独立 build/deploy job、github-pages environment，以及部署所需的最小 pages/id-token 权限。它只是本地文件，目前未执行远程 Actions。
+workflow 使用 main 的 push 和手动触发，Node 24、npm 缓存、独立 build/deploy job、github-pages environment。构建仅使用 contents/pages 读取权限；部署使用 pages: write 和 id-token: write，通过官方 Pages artifact 发布，不需要 gh-pages 分支或部署令牌。
 
-后续顺序：先检查本地结构与 OneDrive/Git 边界，再创建空的 GitHub Repository，确认 GitHub 用户名与此站点名称一致，连接 remote，然后在明确授权后 push；GitHub Settings → Pages → Source 选择 GitHub Actions。
+后续更新：先执行 npm run build 和 npm run verify 并预览，再检查和提交需要公开的文件；在 Jerry 明确授权后 push main。到仓库 Actions 检查 build 与 deploy 均成功，并打开正式网站验证页面、附件和搜索。main 的 push 会触发真实部署。
 
 ## 升级与依赖检查
 

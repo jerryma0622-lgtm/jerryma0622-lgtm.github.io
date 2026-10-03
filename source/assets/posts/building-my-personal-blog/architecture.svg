@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="620" viewBox="0 0 400 620" role="img" aria-labelledby="title desc">
+  <title id="title">Jerry Blog architecture</title>
+  <desc id="desc">Obsidian and Codex edit Markdown files. Local Hexo and Butterfly build checks precede Git commit and push. GitHub Actions builds and verifies the site with Hexo and Butterfly, then deploys the output to GitHub Pages.</desc>
+  <rect width="400" height="620" rx="8" fill="#eef2f4"/>
+  <g fill="#ffffff" stroke="#dbe2e7">
+    <rect x="30" y="24" width="340" height="68" rx="8"/>
+    <rect x="30" y="120" width="340" height="68" rx="8"/>
+    <rect x="30" y="216" width="340" height="68" rx="8"/>
+    <rect x="30" y="312" width="340" height="68" rx="8"/>
+    <rect x="30" y="408" width="340" height="92" rx="8"/>
+    <rect x="30" y="528" width="340" height="68" rx="8"/>
+  </g>
+  <g fill="#243341" font-family="system-ui,sans-serif" font-size="22" text-anchor="middle">
+    <text x="200" y="67">Obsidian + Codex</text>
+    <text x="200" y="163">Markdown + Assets</text>
+    <text x="200" y="248">Local Build + Verify</text>
+    <text x="200" y="272" font-size="18">Hexo + Butterfly</text>
+    <text x="200" y="355">Git commit + push</text>
+    <text x="200" y="437">GitHub Actions</text>
+    <text x="200" y="463" font-size="18">Hexo + Butterfly</text>
+    <text x="200" y="488" font-size="18">Build + Verify + Deploy</text>
+    <text x="200" y="571">GitHub Pages → Blog</text>
+  </g>
+  <g stroke="#355f7a" stroke-width="2" fill="none">
+    <path d="M200 95v20m-7-8 7 8 7-8"/>
+    <path d="M200 191v20m-7-8 7 8 7-8"/>
+    <path d="M200 287v20m-7-8 7 8 7-8"/>
+    <path d="M200 383v20m-7-8 7 8 7-8"/>
+    <path d="M200 503v20m-7-8 7 8 7-8"/>
+  </g>
+</svg>

@@ -19,7 +19,7 @@ Maximum content width 1120px; article prose capped at 76ch. Desktop spacing 36px
 Solid background steps and hairline boundaries. No blur, gradients, background photos or decorative side rails.
 
 ## Guardrails
-One real welcome post only. No invented credentials or project achievements. No autoplay, trackers, particle effects, trails, background music, sharing widgets or comment services. Keep upstream theme attribution.
+Keep posts grounded in real experience, starting with the Blog setup record. No invented credentials or project achievements. No autoplay, trackers, particle effects, trails, background music, sharing widgets or comment services. Keep upstream theme attribution.
 
 ## Responsive behavior
 Use Butterfly's mobile navigation at 768px and below. Verify 320px, 375px and desktop. Respect reduced motion; no entrance animations. Focus outlines and a skip-to-content link aid keyboard navigation.

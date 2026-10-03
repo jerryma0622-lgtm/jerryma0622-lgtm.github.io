@@ -6,6 +6,9 @@ const { load } = require('cheerio');
 const root = path.resolve(__dirname, '..');
 const output = path.join(root, 'public');
 const site = new URL('https://jerryma0622-lgtm.github.io');
+const firstPostRoute = 'posts/building-my-personal-blog';
+const firstPostTitle = '用 Obsidian + Codex + Hexo 搭建我的个人 Blog';
+const firstPostAttachment = '/assets/posts/building-my-personal-blog/architecture.svg';
 let checked = 0;
 const errors = [];
 const htmlFiles = [];
@@ -46,7 +49,8 @@ for (const filename of files) {
   if (filename.endsWith('.html')) {
     htmlFiles.push(filename);
     const text = fs.readFileSync(filename, 'utf8');
-    assert(!/Jerry Knowledge Base|C:\\Users\\|file:\/\/\//i.test(text), 'Private or Windows path leaked into output');
+    // The first post intentionally names the private vault; paths remain private.
+    assert(!/Jerry Knowledge Base[\\/]|C:\\Users\\|file:\/\/\//i.test(text), 'Private or Windows path leaked into output');
     const $ = load(text);
     $('a[href], link[href]').each((_, el) => checkLink($(el).attr('href'), filename, el.name === 'a'));
     $('[src], [data-src], [poster]').each((_, el) => {
@@ -57,13 +61,16 @@ for (const filename of files) {
     for (const match of text.matchAll(/url\(\s*['"]?([^'"\s)]+)['"]?\s*\)/g)) checkLink(match[1], filename, false);
   }
 }
-for (const route of ['', 'posts/welcome', 'categories', 'tags', 'archives', 'about', 'projects']) {
+for (const route of ['', firstPostRoute, 'categories', 'tags', 'archives', 'about', 'projects']) {
   assert(fs.existsSync(path.join(output, route, 'index.html')), 'Missing expected route: /' + route);
 }
-const welcome = fs.readFileSync(path.join(output, 'posts/welcome/index.html'), 'utf8');
-assert(welcome.includes('/assets/posts/welcome/workflow.svg'), 'Relative attachment was not rewritten');
-assert(!welcome.includes('../assets/posts/welcome/workflow.svg'), 'Source-relative attachment leaked into website');
-assert(fs.readFileSync(path.join(output, 'search.xml'), 'utf8').includes('Welcome to Jerry'), 'Welcome missing from local search');
+const firstPost = fs.readFileSync(path.join(output, firstPostRoute, 'index.html'), 'utf8');
+const $firstPost = load(firstPost);
+assert($firstPost('img[src], img[data-src]').toArray().some(el =>
+  ['src', 'data-src'].some(attribute => $firstPost(el).attr(attribute) === firstPostAttachment)), 'Relative attachment was not rewritten');
+assert(!$firstPost('[src], [data-src], a[href]').toArray().some(el =>
+  ['src', 'data-src', 'href'].some(attribute => $firstPost(el).attr(attribute) === '..' + firstPostAttachment)), 'Source-relative attachment leaked into website');
+assert(fs.readFileSync(path.join(output, 'search.xml'), 'utf8').includes(firstPostTitle), 'First post missing from local search');
 assert(!files.some(file => /(?:^|[\\/])drafts(?:[\\/]|$)/.test(path.relative(output, file))), 'Draft directory leaked');
 assert(!files.some(file => /(?:^|[\\/])(?:README\.md|AGENTS\.md|package\.json|\.obsidian)(?:[\\/]|$)/.test(path.relative(output, file))), 'Repository internals leaked');
 for (const configFile of ['_config.yml', '_config.butterfly.yml', '.obsidian/app.json']) {

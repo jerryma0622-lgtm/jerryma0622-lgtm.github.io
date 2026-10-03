@@ -17,9 +17,9 @@ drafts/ 默认被 Git 忽略，也不被 Hexo 构建，但不是安全存储；O
 
     .obsidian/                 可移植 Obsidian 基础配置，无第三方插件
     source/
-      _posts/                  正式文章，目前只有 welcome.md
+      _posts/                  正式文章，首篇为 building-my-personal-blog.md
       assets/                  公开图片、附件及站点资源
-        posts/welcome/         按文章 slug 分类的附件
+        posts/building-my-personal-blog/  按文章 slug 分类的附件
         site/                  favicon 等站点资源
       about/                   关于
       categories/              分类汇总

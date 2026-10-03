@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!main) return;
   main.id = main.id || 'main-content';
   main.setAttribute('tabindex', '-1');
+  if (document.querySelector('.skip-link')) return;
   const skip = document.createElement('a');
   skip.className = 'skip-link';
   skip.href = '#' + main.id;

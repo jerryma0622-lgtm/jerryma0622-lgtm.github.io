@@ -2,15 +2,13 @@
 # Never edit node_modules or theme core files for customization.
 nav:
   display_title: true
-  display_post_title: true
-  fixed: false
+  display_post_title: false
+  fixed: true
 menu:
-  首页: / || fas fa-home
-  归档: /archives/ || fas fa-archive
-  分类: /categories/ || fas fa-folder-open
-  标签: /tags/ || fas fa-tags
-  项目: /projects/ || fas fa-code
-  关于: /about/ || fas fa-user
+  Writing: /archives/
+  Projects: /projects/
+  Categories: /categories/
+  About: /about/
 favicon: /assets/site/favicon.svg
 avatar:
   img: /assets/site/favicon.svg
@@ -70,12 +68,12 @@ footer:
     since: 2026
   copyright:
     enable: true
-    version: true
-  custom_text: "技术实践与持续生长的笔记"
+    version: false
+  custom_text: '<a href="https://github.com/jerryma0622-lgtm" target="_blank" rel="noopener">GitHub</a>'
 darkmode:
   enable: true
   button: true
-  autoChangeMode: 1
+  autoChangeMode: false
 display_mode: light
 readmode: false
 rightside_item_order:
@@ -103,22 +101,23 @@ lightbox: ''
 instantpage: false
 theme_color:
   enable: true
-  main: '#355f7a'
-  paginator: '#355f7a'
-  button_hover: '#264a60'
-  text_selection: '#355f7a'
-  link_color: '#355f7a'
-  toc_color: '#355f7a'
+  main: '#365bc0'
+  paginator: '#365bc0'
+  button_hover: '#29469a'
+  text_selection: '#365bc0'
+  link_color: '#365bc0'
+  toc_color: '#365bc0'
   scrollbar_color: '#667785'
 font:
   global_font_size: 16px
   code_font_size: 14px
-  font_family: 'system-ui, -apple-system, "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif'
-  code_font_family: 'Consolas, "Cascadia Code", monospace'
+  font_family: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif'
+  code_font_family: '"Cascadia Code", "SFMono-Regular", Consolas, monospace'
 inject:
   head:
     - '<link rel="stylesheet" href="/css/custom.css">'
     - '<script defer src="/js/accessibility.js"></script>'
+    - '<script defer src="/js/presentation.js"></script>'
   bottom: []
 CDN:
   internal_provider: local

@@ -33,7 +33,8 @@ mode button delegates to Butterfly's persisted switch. Writing entries use hairl
 dividers, date, estimated reading time, title, description and category links.
 Tags are compact pills; category indexes are rows. Radius: 4 / 8 / 12px plus tag pills.
 Focus: 2px accent outline, 4px offset. Press: scale(.97), 120ms. Hover: 2px upward,
-180ms. Keyboard and reduced-motion states have no animation.
+180ms. Keyboard and reduced-motion states use imperceptible 1ms animations so
+Butterfly's completion-event cleanup still closes search and menu overlays.
 
 ## Layout
 1120px canvas, 24px gutters. Spacing: 8 / 16 / 24 / 32 / 48 / 72px.
